@@ -1,3 +1,7 @@
+# 0.11.6
+
+* Update README
+
 # 0.11.5
 
 * Bumped puppeteer version from 2.0.0 to 19.4.1 (@marcoandre1)

@@ -451,7 +451,8 @@ const minimalcss = async (options) => {
     for (const pageUrl of urls) {
       const page = await browser.newPage();
       if (!enableServiceWorkers) {
-        await page._client.send('ServiceWorker.disable');
+        const client = await page.target().createCDPSession()
+        await client.send('ServiceWorker.disable');
       }
       try {
         await processPage({

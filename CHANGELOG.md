@@ -1,3 +1,29 @@
+# 0.11.6
+
+* Update README
+
+# 0.11.5
+
+* Bumped puppeteer version from 2.0.0 to 19.4.1 (@marcoandre1)
+* Replaced
+  
+  ```js
+  await page._client.send('');
+  ```
+
+  with
+
+  ```js
+  const client = await page.target().createCDPSession()
+  await client.send('');
+  ```
+  
+  According to this StackOverflow question: [What does page._client do in Puppeteer?](https://stackoverflow.com/questions/67854271/what-does-page-client-do-in-puppeteer)
+
+# 0.11.4
+
+* Bumped cheerio version from 1.0.0-rc.3 to 1.0.0-rc.12 (@marcoandre1)
+
 # 0.11.3
 
 * Cope with selectors with a `\` character before the `:`

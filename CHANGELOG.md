@@ -1,6 +1,20 @@
 # 0.11.5
 
-* Bumped puppeteer version from 2.0.0 to 14.3.0 (@marcoandre1)
+* Bumped puppeteer version from 2.0.0 to 19.4.1 (@marcoandre1)
+* Replaced
+  
+  ```js
+  await page._client.send('');
+  ```
+
+  with
+
+  ```js
+  const client = await page.target().createCDPSession()
+  await client.send('');
+  ```
+  
+  According to this StackOverflow question: [What does page._client do in Puppeteer?](https://stackoverflow.com/questions/67854271/what-does-page-client-do-in-puppeteer)
 
 # 0.11.4
 

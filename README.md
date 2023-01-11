@@ -1,5 +1,9 @@
 # minimalcss
 
+⚠️ This is a lazy fork of [minimalcss](https://github.com/peterbe/minimalcss). It is just a version with updated dependencies. **Will try to keep dependencies updated, but no development in the near future.**
+
+> **NOTE**: might not work as expected because of dependency updates but tests seem to run smoothly. Create an issue on my repo if you have a specific case that is now not supported because of dependency updates.
+
 ![Build status](https://github.com/peterbe/minimalcss/workflows/Node.js%20CI/badge.svg)
 [![NPM version](https://img.shields.io/npm/v/minimalcss.svg)](https://www.npmjs.com/package/minimalcss)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](#badge)

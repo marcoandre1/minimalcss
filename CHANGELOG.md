@@ -1,3 +1,11 @@
+# 0.11.5
+
+* Bumped puppeteer version from 2.0.0 to 14.3.0 (@marcoandre1)
+
+# 0.11.4
+
+* Bumped cheerio version from 1.0.0-rc.3 to 1.0.0-rc.12 (@marcoandre1)
+
 # 0.11.3
 
 * Cope with selectors with a `\` character before the `:`

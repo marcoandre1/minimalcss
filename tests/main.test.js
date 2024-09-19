@@ -35,6 +35,9 @@ const runMinimalcss = (path, options = {}) => {
 beforeAll(async () => {
   await fastify.listen(3000);
   browser = await puppeteer.launch({
+    headless: 'true', // (default) enables Headless
+  // `headless: 'old'` enables old Headless
+  // `headless: false` enables "headful" mode
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 });
@@ -66,7 +69,8 @@ test('handles JS errors', async () => {
   try {
     await runMinimalcss('jserror');
   } catch (e) {
-    expect(e.message).toMatch('Error: unhandled');
+    expect(e.message).toMatch('unhandled');
+    // With version 21.0.1 of puppeteer, throw new Error("unhandled") returns 'unhandled' instead of 'Error: unhandled'
   }
 });
 

@@ -435,6 +435,9 @@ const minimalcss = async (options) => {
   const browser =
     options.browser ||
     (await puppeteer.launch({
+      headless: 'true', // (default) enables Headless
+  // `headless: 'old'` enables old Headless
+  // `headless: false` enables "headful" mode
       args: puppeteerArgs,
     }));
 

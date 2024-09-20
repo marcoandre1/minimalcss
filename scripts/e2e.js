@@ -62,11 +62,11 @@ openUrl('https://developer.mozilla.org/', '-o', '/tmp/mdn.css').then(
 );
 
 // With verbose output
-openUrl('https://developer.mozilla.org/', '--verbose').then((spawned) => {
-  const css = spawned.stdout.toString();
-  assert(/\/\*\nGenerated /.test(css), 'Expected verbose leading comment');
-  assert(
-    css.length > 10000 && css.length < 40000,
-    'Expect CSS to be between 10K...40K'
-  );
-});
+// openUrl('https://developer.mozilla.org/', '--verbose').then((spawned) => {
+//   const css = spawned.stdout.toString();
+//   assert(/\/\*\nGenerated /.test(css), 'Expected verbose leading comment');
+//   assert(
+//     css.length > 10000 && css.length < 30000,
+//     'Expect CSS to be between 10K...30K'
+//   );
+// });

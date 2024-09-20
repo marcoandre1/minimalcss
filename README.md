@@ -4,9 +4,9 @@
 
 > **NOTE**: might not work as expected because of dependency updates but tests seem to run smoothly. Create an issue on my repo if you have a specific case that is now not supported because of dependency updates.
 >
-> ⚠️ This project uses **yarn** for build and tests. To install it : `npm install --global yarn`
+> ⚠️ This project uses **yarn** for build and tests. To install it : `npm install --global yarn`. Then `yarn test` to run tests.
 
-## minimalcss ![Build status](https://github.com/peterbe/minimalcss/workflows/Node.js%20CI/badge.svg) [![NPM version](https://img.shields.io/npm/v/minimalcss.svg)](https://www.npmjs.com/package/minimalcss) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](#badge) [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/)
+## minimalcss-test [![Node.js CI](https://github.com/marcoandre1/minimalcss/actions/workflows/node.js.yml/badge.svg)](https://github.com/marcoandre1/minimalcss/actions/workflows/node.js.yml) [![NPM version](https://img.shields.io/npm/v/minimalcss-test.svg)](https://www.npmjs.com/package/minimalcss) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](#badge) [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/)
 
 A Node library to extract the minimal CSS used in a set of URLs with puppeteer.
 Used to find what minimal CSS is needed to render on first load, even with

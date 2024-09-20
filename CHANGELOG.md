@@ -1,3 +1,9 @@
+# 0.11.7
+
+* Bump cheerio and puppeteer to v21 [Can you make a new release](https://github.com/cheeriojs/cheerio/issues/2774)
+* fix fastify fixes all tests [refactor: change reply.redirect() signature](https://github.com/fastify/fastify/pull/5483)
+* bumped puppeteer to 23.4, added favicon [[Bug]: TypeError: page.removeListener is not a function](https://github.com/puppeteer/puppeteer/issues/12588)
+
 # 0.11.6
 
 * Update README

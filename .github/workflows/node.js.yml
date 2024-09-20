@@ -12,16 +12,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 16, 18, 20 ]
-    name: Node ${{ matrix.node }} sample
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node }}
+    - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node }}
+        node-version: 20
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"

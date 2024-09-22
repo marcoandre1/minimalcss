@@ -48,31 +48,25 @@ openUrl('https://minimalcss.app/').then((spawned) => {
   );
 });
 
-// TODO: Tests not working on https://minimalcss.app/, could be the reason these tests are failing
-// Minimization Error
-// The request to minimalcss-server worked but the actual minimization work failed.
-//
-// Error: SyntaxError: Unexpected token '='
-//
 // Open with -o
-// openUrl('https://developer.mozilla.org/', '-o', '/tmp/mdn.css').then(
-//   (spawned) => {
-//     const stdout = spawned.stdout.toString();
-//     assert(!stdout.trim(), 'Output should be empty');
-//     const css = fs.readFileSync('/tmp/mdn.css').toString();
-//     assert(
-//       css.length > 10000 && css.length < 30000,
-//       'Expect CSS to be between 10K...30K'
-//     );
-//   }
-// );
+openUrl('https://developer.mozilla.org/', '-o', '/tmp/mdn.css').then(
+  (spawned) => {
+    const stdout = spawned.stdout.toString();
+    assert(!stdout.trim(), 'Output should be empty');
+    const css = fs.readFileSync('/tmp/mdn.css').toString();
+    assert(
+      css.length > 60000 && css.length < 70000,
+      'Expect CSS to be between 10K...30K'
+    );
+  }
+);
 
 // With verbose output
-// openUrl('https://developer.mozilla.org/', '--verbose').then((spawned) => {
-//   const css = spawned.stdout.toString();
-//   assert(/\/\*\nGenerated /.test(css), 'Expected verbose leading comment');
-//   assert(
-//     css.length > 10000 && css.length < 30000,
-//     'Expect CSS to be between 10K...30K'
-//   );
-// });
+openUrl('https://developer.mozilla.org/', '--verbose').then((spawned) => {
+  const css = spawned.stdout.toString();
+  assert(/\/\*\nGenerated /.test(css), 'Expected verbose leading comment');
+  assert(
+    css.length > 60000 && css.length < 70000,
+    'Expect CSS to be between 10K...30K'
+  );
+});

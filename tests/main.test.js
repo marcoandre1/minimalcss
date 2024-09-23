@@ -35,7 +35,6 @@ const runMinimalcss = (path, options = {}) => {
 beforeAll(async () => {
   await fastify.listen({ port: 3000 });
   browser = await puppeteer.launch({
-    headless: 'true',
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 });

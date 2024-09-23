@@ -440,7 +440,6 @@ const minimalcss = async (options) => {
   const browser =
     options.browser ||
     (await puppeteer.launch({
-      headless: 'true',
       args: puppeteerArgs,
     }));
 

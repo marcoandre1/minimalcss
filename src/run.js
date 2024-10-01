@@ -311,7 +311,12 @@ const processPage = ({
       // Second, goto the page and evaluate it with JavaScript.
       // The 'waitUntil' option determines how long we wait for all
       // possible assets to load.
-      response = await page.goto(pageUrl, { waitUntil: 'networkidle0' });
+
+      // 2024-09-22 : removing option waitUntil fixes the end-to-end test
+      // for https://developer.mozilla.org/. It appears that something changed
+      // in puppeteer-core which results in response null if waitUntil is
+      // specified.
+      response = await page.goto(pageUrl);
       if (!isOk(response)) {
         return safeReject(
           new Error(`${response.status()} on ${pageUrl} (second time)`)
@@ -451,7 +456,7 @@ const minimalcss = async (options) => {
     for (const pageUrl of urls) {
       const page = await browser.newPage();
       if (!enableServiceWorkers) {
-        const client = await page.target().createCDPSession()
+        const client = await page.target().createCDPSession();
         await client.send('ServiceWorker.disable');
       }
       try {

@@ -1,3 +1,7 @@
+# 0.11.7
+
+* Bump all dependencies.
+
 # 0.11.6
 
 * Update README

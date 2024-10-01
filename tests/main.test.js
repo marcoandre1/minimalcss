@@ -3,17 +3,17 @@ const path = require('path');
 const puppeteer = require('puppeteer');
 const minimalcss = require('../index');
 
-fastify.register(require('fastify-static'), {
+fastify.register(require('@fastify/static'), {
   root: path.join(__dirname, 'examples'),
 });
 
 // Important that the URL doesn't end with .css
 fastify.get('/307-css', (req, reply) => {
-  reply.redirect(307, '/redirected.css');
+  reply.redirect('/redirected.css', 307);
 });
 
 fastify.get('/307.html', (req, reply) => {
-  reply.redirect(307, '/redirected.html');
+  reply.redirect('/redirected.html', 307);
 });
 
 fastify.get('/timeout.html', (req, reply) => {
@@ -33,7 +33,7 @@ const runMinimalcss = (path, options = {}) => {
 };
 
 beforeAll(async () => {
-  await fastify.listen(3000);
+  await fastify.listen({ port: 3000 });
   browser = await puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
@@ -66,7 +66,8 @@ test('handles JS errors', async () => {
   try {
     await runMinimalcss('jserror');
   } catch (e) {
-    expect(e.message).toMatch('Error: unhandled');
+    expect(e.message).toMatch('unhandled');
+    // With version 21.0.1 of puppeteer, throw new Error("unhandled") returns 'unhandled' instead of 'Error: unhandled'
   }
 });
 

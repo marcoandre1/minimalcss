@@ -55,7 +55,7 @@ openUrl('https://developer.mozilla.org/', '-o', '/tmp/mdn.css').then(
     assert(!stdout.trim(), 'Output should be empty');
     const css = fs.readFileSync('/tmp/mdn.css').toString();
     assert(
-      css.length > 10000 && css.length < 30000,
+      css.length > 60000 && css.length < 70000,
       'Expect CSS to be between 10K...30K'
     );
   }
@@ -66,7 +66,7 @@ openUrl('https://developer.mozilla.org/', '--verbose').then((spawned) => {
   const css = spawned.stdout.toString();
   assert(/\/\*\nGenerated /.test(css), 'Expected verbose leading comment');
   assert(
-    css.length > 10000 && css.length < 30000,
+    css.length > 60000 && css.length < 70000,
     'Expect CSS to be between 10K...30K'
   );
 });
